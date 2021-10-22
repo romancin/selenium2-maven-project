@@ -33,22 +33,21 @@ public class GoogleStartPageTest {
 
 	@Test
 	public void pageTitleIsNotNull() throws MalformedURLException {
-		WebElement element = driver.findElement(By.name("q"));
-		element.sendKeys("Bricomart\n");
-		element.submit();
-		// wait until the google page shows the result
-   		WebElement myDynamicElement = (new WebDriverWait(driver, 10))
-              	           .until(ExpectedConditions.presenceOfElementLocated(By.id("resultStats")));
+   		driver.findElement(By.xpath("//input[@type='text']")).sendKeys("Bricomart");   
+        	driver.findElement(By.xpath("//button[@name='btnG']")).click();
+        	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS); 
+        	driver.findElement(By.xpath("(//h3[@class='r']/a)[3]")).click();
+        	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS); 
 		assertTrue(driver.getTitle() != null);
 	}
 
 	@Test
 	public void pageTitleContainsGoogle() throws MalformedURLException {
-		WebElement element = driver.findElement(By.name("q"));
-		element.sendKeys("Bricomart\n");
-		element.submit();
-		WebElement myDynamicElement = (new WebDriverWait(driver, 10))
-              	           .until(ExpectedConditions.presenceOfElementLocated(By.id("resultStats")));
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys("Bricomart");   
+        	driver.findElement(By.xpath("//button[@name='btnG']")).click();
+        	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS); 
+        	driver.findElement(By.xpath("(//h3[@class='r']/a)[3]")).click();
+        	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS); 
 		assertTrue(driver.getTitle().contains("Google"));
 	}
 	
