@@ -31,11 +31,6 @@ public class GoogleStartPageTest {
 		driver.get("https://google.com/");
 	}
 
-	@After
-	public void tearDownWebDriver() {
-		driver.quit();
-	}
-
 	@Test
 	public void pageTitleIsNotNull() throws MalformedURLException {
 		WebElement element = driver.findElement(By.name("q"));
@@ -47,9 +42,14 @@ public class GoogleStartPageTest {
 	@Test
 	public void pageTitleContainsGoogle() throws MalformedURLException {
 		WebElement element = driver.findElement(By.name("q"));
-		element.sendKeys("Cheese!");
+		element.sendKeys("Bricomart");
 		element.submit();
 		assertTrue(driver.getTitle().contains("Google"));
+	}
+	
+	@After
+	public void tearDownWebDriver() {
+		driver.quit();
 	}
 
 }
