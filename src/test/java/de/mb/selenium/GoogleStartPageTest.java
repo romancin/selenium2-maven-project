@@ -36,6 +36,9 @@ public class GoogleStartPageTest {
 		WebElement element = driver.findElement(By.name("q"));
 		element.sendKeys("Bricomart\n");
 		element.submit();
+		// wait until the google page shows the result
+   		WebElement myDynamicElement = (new WebDriverWait(driver, 10))
+              	           .until(ExpectedConditions.presenceOfElementLocated(By.id("resultStats")));
 		assertTrue(driver.getTitle() != null);
 	}
 
@@ -44,6 +47,8 @@ public class GoogleStartPageTest {
 		WebElement element = driver.findElement(By.name("q"));
 		element.sendKeys("Bricomart\n");
 		element.submit();
+		WebElement myDynamicElement = (new WebDriverWait(driver, 10))
+              	           .until(ExpectedConditions.presenceOfElementLocated(By.id("resultStats")));
 		assertTrue(driver.getTitle().contains("Google"));
 	}
 	
