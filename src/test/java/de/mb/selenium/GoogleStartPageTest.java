@@ -21,11 +21,11 @@ public class GoogleStartPageTest {
 	@Before
 	public void setUp() throws MalformedURLException {
 		String serverUrl = System.getProperty("grid.server.url");
-		String gridServerUrl = "http://192.168.99.1:4444/wd/hub";
+		String gridServerUrl = "http://seleniumhub/";
 		if (serverUrl != null) {
 			gridServerUrl = serverUrl;
 		}
-		DesiredCapabilities capability = DesiredCapabilities.firefox();
+		DesiredCapabilities capability = DesiredCapabilities.chrome();
 		URL gridUrl = new URL(gridServerUrl);
 		driver = new RemoteWebDriver(gridUrl, capability);
 		driver.get("http://www.google.com");
