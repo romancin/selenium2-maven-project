@@ -28,7 +28,7 @@ public class GoogleStartPageTest {
 		DesiredCapabilities capability = DesiredCapabilities.chrome();
 		URL gridUrl = new URL(gridServerUrl);
 		driver = new RemoteWebDriver(gridUrl, capability);
-		driver.get("http://www.google.com");
+		driver.get("https://www.bricomart.es/");
 	}
 
 	@After
