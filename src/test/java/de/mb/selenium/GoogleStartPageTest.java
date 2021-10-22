@@ -28,7 +28,7 @@ public class GoogleStartPageTest {
 		DesiredCapabilities capability = DesiredCapabilities.chrome();
 		URL gridUrl = new URL(gridServerUrl);
 		driver = new RemoteWebDriver(gridUrl, capability);
-		driver.get("https://www.paradigmadigital.com/");
+		driver.get("https://www.paradigmadigital.com");
 	}
 
 	@After
